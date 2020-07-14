@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    background: grey;
+    font-family: Monospace, Helvetica, Arial, sans-serif;
+    min-width: 160px;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+.boxes, .button__box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.box {
+    box-sizing:border-box;
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    margin-top: 10%;
+    border: 1px solid transparent;
+    transition: 1s;
+}
+
+.box:hover {
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.button__box {
+    margin-top: 15%;
+}
+
+.button__box > button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    width: 160px;
+    height: 50px;
+    position: relative;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.button__box > button::before {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    height: 0;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    border: 5px solid transparent;
+}
+
+.button__box > button:hover::before {
+    width: 160px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-right: none;
+    border-bottom: none;
+    transition: height 0.5s linear, 
+                width 0.5s linear 0.5s;
+}
+
+.button__box > button::after {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    height: 0;
+    width: 0;
+    right: 0;
+    top: 0;
+    border: 5px solid transparent;
+}
+
+.button__box > button:hover::after {
+    width: 160px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-left: none;
+    border-top: none;
+    transition: height 0.5s linear, 
+                width 0.5s linear 0.5s;
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.image__box {
+    position: relative;
+    padding: 5% 0;
+}
+
+.image__box > img {
+    width: 100%;
+}
+
+.image__text {
+    position: absolute;
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+    left: 0;
+    right: 100%;
+    margin-top: 35%;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.image__box:hover .image__text {
+    opacity: 1;
+    right: 0;
+    transform-origin:left;
+    transition-property: right;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    background: rgba(0,0,0,0.5);
+  }  
+
+  .dropdown__menu {
+      margin-top: 15%;
+      text-align: center;
+      max-width: 300px;
+      min-width: 160px;
+      display: block;
+      position: relative;
+      margin: 0 auto;
+      font-size: 1.3em;
+      margin-bottom: 10%;
+    }
+
+  .menu__heading {
+    font-family: 'Bangers', cursive;
+    font-size: 2em;
+    color: #C0392B;
+    margin-bottom: 10%;
+}
+
+nav {
+    position: relative;
+    width: 100%;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+ul {
+    margin-bottom: 0;
+}
+
+.dropdown__item {
+    position: relative;
+    padding: 10px 0;
+    width: 100%;
+    background-color: #C0392B;
+    line-height: 2em;
+    border: none;
+    border-bottom: 1px solid gray;
+    color: white;
+    outline: none;
+    font-weight: 600;
+}
+
+.dropdown__item--down {
+    position: absolute;
+    background-color: #eee;
+    width: 100%;
+    display: none;
+    pointer-events: none;
+    transition: all 4s ease;
+}
+
+.dropdown__item--down li a {
+    display: block;
+    left: 48%;
+    color: rgb(58, 58, 58);
+    line-height: 1.7em;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+
+.dropdown__item::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 46px;
+    width: 100%;
+    top: 0;
+}
+
+.dropdown__item--down li a:hover {
+    background-color: rgb(195, 195, 195);
+}
+
+nav button:focus + ul {
+    display: block;
+    pointer-events: all;
+    position: relative;
+}
